@@ -10,7 +10,7 @@ serve:
 .PHONY: start
 start:
 	@build
-	@start
+	@serve
 
 .PHONY: scan
 scan:
