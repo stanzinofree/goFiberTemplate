@@ -57,10 +57,9 @@ Or clone the v0.1 of repository
 
 ```bash
 git clone https://github.com/stanzinofree/goFiberTemplate.git
-git fetch --all --tags
-git checkout tags/0.1 -b main
 cd goFiberTemplate
-go mod init goFiberTemplate
+git fetch --all --tags
+git checkout tags/0.1
 go mod tidy
 go build -o server ./cmd/main.go
 ./server
