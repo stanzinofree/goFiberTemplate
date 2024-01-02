@@ -1,20 +1,35 @@
+executable = server
+
+.PHONY: build
 build:
 	@echo "Building Server APP"
-	go build -o server ./cmd/main.go
+	go build -o ${executable} ./cmd/main.go
 	@echo "Ending Building Server APP"
 
+.PHONY: start
 start:
-	@ "Starting Server, use CTRL+DEL to kill it"
-	./server
+	@echo "Starting Server"
+	./${executable} &
+	@echo "Server Started"
 
+.PHONY: stop
+stop:
+	@echo "Stopping Server"
+	@-pkill -SIGTERM -f "./${executable}"
+	@echo "Server Stopped"
 
-run:
-	@build
-	@start
+.PHONY: clean
+clean:
+	@echo "Removing last build of server"
+	if [ "${executable}" ]; then rm -f ${executable}; fi
+	@echo "Server removed"
 
+.PHONY: run
+run: stop clean build start
+
+.PHONY: scan
 scan:
 	@echo "Starting Scanning the APP"
 	bearer scan .
 
 
-.PHONY: build run start scan
