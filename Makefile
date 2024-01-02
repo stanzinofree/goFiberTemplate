@@ -1,17 +1,20 @@
-.PHONY: build
 build:
+	@echo "Building Server APP"
 	go build -o server ./cmd/main.go
+	@echo "Ending Building Server APP"
 
-.PHONY: serve
-serve:
-	echo "Kill the server pressing CTRL+DEL"
-    ./server
-
-.PHONY: start
 start:
-	@build
-	@serve
+	@ "Starting Server, use CTRL+DEL to kill it"
+	./server
 
-.PHONY: scan
+
+run:
+	@build
+	@start
+
 scan:
+	@echo "Starting Scanning the APP"
 	bearer scan .
+
+
+.PHONY: build run start scan
