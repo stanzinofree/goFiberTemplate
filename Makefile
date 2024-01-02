@@ -1,15 +1,16 @@
+.PHONY: build
+build:
+	go build -o server ./cmd/main.go
+
+.PHONY: serve
+serve:
+	echo "Kill the server pressing CTRL+DEL"
+    ./server
+
 .PHONY: start
 start:
-	echo "Kill the server pressing CTRL+DEL"
-	./server
-
-.PHONY: macbuild
-macbuild:
-	CGO_ENABLED=0 GOOS=darwin go build -o server ./cmd/main.go
-
-.PHONY: linuxbuild
-linuxbuild:
-	CGO_ENABLED=0 GOOS=linux go build -o server ./cmd/main.go
+	@build
+	@start
 
 .PHONY: scan
 scan:
