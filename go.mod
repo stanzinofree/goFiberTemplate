@@ -3,8 +3,13 @@ module goFiberTemplate
 go 1.21.5
 
 require (
+	github.com/gofiber/fiber/v2 v2.51.0
+	github.com/joho/godotenv v1.5.1
+)
+
+require (
 	github.com/andybalholm/brotli v1.0.5 // indirect
-	github.com/gofiber/fiber/v2 v2.51.0 // indirect
+	github.com/caarlos0/env/v10 v10.0.0 // indirect
 	github.com/google/uuid v1.4.0 // indirect
 	github.com/klauspost/compress v1.16.7 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
